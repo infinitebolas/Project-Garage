@@ -2,9 +2,8 @@ package backend;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -20,6 +19,12 @@ public class GarageController {
     @GetMapping
     public ResponseEntity<List<GarageEntity>> getAllGarages(){
         return new ResponseEntity<>(garageRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<GarageEntity> createGarage(@RequestBody GarageEntity garage) {
+        GarageEntity garageCreated = garageRepository.save(garage);
+        return new ResponseEntity<>(garageCreated, HttpStatus.CREATED);
 
     }
 
