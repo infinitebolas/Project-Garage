@@ -37,7 +37,7 @@ public class GarageController {
 
     @PutMapping("/{id}")
     public ResponseEntity<GarageEntity> updateGarage(@PathVariable Integer id, @RequestBody GarageEntity garageUpdate){
-        Optional<GarageEntity> garage =garageRepository.findById(id);
+        Optional<GarageEntity> garage = garageRepository.findById(id);
         if (garage.isPresent()){
             GarageEntity existingGarage = garage.get();
             existingGarage.setNom(garageUpdate.getNom());
@@ -46,6 +46,16 @@ public class GarageController {
 
             GarageEntity updateGarage = garageRepository.save(existingGarage);
             return new ResponseEntity<>(updateGarage, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteGarage(@PathVariable Integer id) {
+        Optional<GarageEntity> garage = garageRepository.findById(id);
+        if (garage.isPresent()){
+            garageRepository.delete(garage.get());
+            return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
