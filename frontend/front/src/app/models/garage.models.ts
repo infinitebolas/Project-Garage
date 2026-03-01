@@ -1,4 +1,4 @@
-export interface Garage {
+export interface GarageModel {
   id: number;
   nom: string;
   adresse: string;
