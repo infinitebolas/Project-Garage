@@ -1,1 +1,3 @@
-<p>garages-list works!</p>
+@for (garage of garages; track garage.id) {
+    <app-garage [garage]="garage"/>
+}
