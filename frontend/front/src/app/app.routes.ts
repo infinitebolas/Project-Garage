@@ -6,9 +6,13 @@ import { VoituresList } from './voitures-list/voitures-list';
 import { Voiture } from './voiture/voiture';
 
 export const routes: Routes = [
-    {path: '', component:Accueil},
-    {path: 'garages', component:GaragesList},
-    {path: 'garages/:id', component:Garage},
-    {path: 'voitures', component:VoituresList},
-    {path: 'voitures/:id', component:Voiture}
+    { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+
+    { path: 'accueil', component: Accueil },
+    { path: 'garages', component: GaragesList },
+    { path: 'garages/:id', component: Garage },
+    { path: 'voitures', component: VoituresList },
+    { path: 'voitures/:id', component: Voiture }
+
 ];
+

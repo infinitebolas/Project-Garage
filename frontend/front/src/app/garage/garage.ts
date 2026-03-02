@@ -17,6 +17,6 @@ export class Garage implements OnInit {
   ngOnInit(): void {}
 
   onViewGarage() {
-    this.router.navigate(['/garage', this.garage.id]);
+    this.router.navigate(['/garages', this.garage.id]);
   }
 }

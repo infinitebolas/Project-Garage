@@ -1,3 +1,21 @@
-@for (garage of garages; track garage.id) {
-    <app-garage [garage]="garage"/>
-}
+<div class="garages-container">
+
+  <div class="garage-table" *ngFor="let garage of garages">
+
+    <div class="table-row header">
+      <div class="cell">ID</div>
+      <div class="cell">Nom</div>
+      <div class="cell">Adresse</div>
+      <div class="cell">Description</div>
+    </div>
+
+    <div class="table-row">
+      <div class="cell">{{ garage.id }}</div>
+      <div class="cell">{{ garage.nom }}</div>
+      <div class="cell">{{ garage.adresse }}</div>
+      <div class="cell">{{ garage.description }}</div>
+    </div>
+
+  </div>
+
+</div>

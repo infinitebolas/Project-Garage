@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
-  imports: [RouterLink],
+  imports: [],
+  standalone: true,
   templateUrl: './accueil.html',
   styleUrl: './accueil.scss',
 })
 export class Accueil {
   constructor(private router: Router) {}
   onContinue() {
-    this.router.navigateByUrl('/garages');
+    this.router.navigate(['/garages']);
 }
 }
