@@ -5,7 +5,7 @@
     <div class="garage">
       <div class="garage-name">{{ garage.nom }}</div>
       <div class="buttons">
-        <button class="display">Afficher</button>
+        <button class="display" (click)="afficherGarage(garage.id)">Afficher</button>
         <button class="modify">Modifier</button>
         <button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
       </div>
