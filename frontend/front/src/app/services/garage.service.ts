@@ -14,5 +14,11 @@ export class GarageService {
         return this.http.get<GarageModel[]>("http://localhost:8080/api/garages");
     }
 
+    getGarageById(id: number):Observable<GarageModel> {
+        return this.http.get<GarageModel>("http://localhost:8080/api/garages/" + id);
+    }
 
+    deleteGarage(id:number):Observable<void>{
+        return this.http.delete<void>("http://localhost:8080/api/garages/" + id);
+    }
 }
