@@ -1,1 +1,9 @@
-<p>garage works!</p>
+<div>
+    <p>Nom :{{garage.nom}}</p>
+    <p>Id: {{garage.id}}</p>
+    <p>Adresse: {{garage.adresse}}</p>
+    <p>Description: {{garage.description}}</p>
+</div>
+<button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
+<button (click)="retourGarages()">Retourner aux garages</button>
+

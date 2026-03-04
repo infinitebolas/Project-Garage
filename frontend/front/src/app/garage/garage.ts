@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { GarageModel } from '../models/garage.models';
-import { Router } from '@angular/router';
+import { GarageService } from '../services/garage.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-garage',
@@ -10,11 +11,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./garage.scss'],
 })
 export class Garage implements OnInit {
-  @Input() garage!: GarageModel;
 
-  constructor(private router: Router) {}
+  constructor(
+    private garageService: GarageService,
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private route: ActivatedRoute    
+  ) {}  
 
-  ngOnInit(): void {}
+  garage!: GarageModel ;
+  
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadGarage(id);
+  }
+  deleteGarage(id: number) {
+    this.garageService.deleteGarage(id).subscribe(() => {
+      this.retourGarages();
+    });
+  }
 
+  loadGarage(id:number) {
+    this.garageService.getGarageById(id).subscribe(data => {
+      this.garage = data;
+      this.cdr.detectChanges();
+    });
+  }
 
+  retourGarages(){
+    this.router.navigate(['/garages']);
+  }
 }
