@@ -1,1 +1,16 @@
-<p>voitures-list works!</p>
+<div class="voitures-container">
+  <div class="voiture-table">
+    <div class="voiture" *ngFor="let voiture of voitures">
+
+      <div class="voiture-name">{{ voiture.modele }}</div>
+
+      <div class="buttons">
+        <button class="display" (click)="afficherVoiture(voiture.id)">Afficher</button>
+        <button class="modify">Modifier</button>
+        <button class="delete" (click)="deleteVoiture(voiture.id)">Supprimer</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

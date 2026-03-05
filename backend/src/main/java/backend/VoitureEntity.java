@@ -38,9 +38,9 @@ public class VoitureEntity {
         this.id = id;
     }
 
-    public String getModel() {return modele; }
+    public String getModele() {return modele; }
 
-    public void setModel(String modele) {
+    public void setModele(String modele) {
         this.modele = modele;
     }
 

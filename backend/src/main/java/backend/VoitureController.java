@@ -41,7 +41,7 @@ public class VoitureController {
         if (voiture.isPresent()){
             VoitureEntity existingVoiture = voiture.get();
             existingVoiture.setCouleur(voitureUpdate.getCouleur());
-            existingVoiture.setModel(voitureUpdate.getModel());
+            existingVoiture.setModele(voitureUpdate.getModele());
             existingVoiture.setGarage(voitureUpdate.getGarage());
 
             VoitureEntity updateVoiture = voitureRepository.save(existingVoiture);
