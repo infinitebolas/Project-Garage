@@ -59,4 +59,10 @@ public class VoitureController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/garage/{id}")
+    public ResponseEntity<List<VoitureEntity>> getVoituresByGarage(@PathVariable Integer id){
+        List<VoitureEntity> voitures = voitureRepository.findByGarage(id);
+        return new ResponseEntity<>(voitures, HttpStatus.OK);
+    }
 }
