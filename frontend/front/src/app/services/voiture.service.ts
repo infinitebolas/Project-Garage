@@ -21,7 +21,4 @@ export class VoitureService {
         return this.http.delete<void>("http://localhost:8080/api/voiture/" + id);
     }
 
-    // getVoitures(id:number):Observable<VoitureModel[]>{
-    //     return this.http.get<VoitureModel[]>("http://localhost:8080/api/voiture/voiture/"+id);
-    // }
 }

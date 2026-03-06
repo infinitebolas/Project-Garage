@@ -1,8 +1,8 @@
-<div class="garages-container">
+<div class="container">
 
-  <div class="garage-table" *ngFor="let garage of garages">
+  <div class="table" *ngFor="let garage of garages">
 
-    <div class="garage">
+    <div class="elem">
       <div class="garage-name">{{ garage.nom }}</div>
       <div class="buttons">
         <button class="display" (click)="afficherGarage(garage.id)">Afficher</button>
