@@ -65,4 +65,20 @@ public class VoitureController {
         List<VoitureEntity> voitures = voitureRepository.findByGarage(id);
         return new ResponseEntity<>(voitures, HttpStatus.OK);
     }
+
+    @PatchMapping("/{id}/garage")
+    public ResponseEntity<VoitureEntity> updateGarage(@PathVariable Integer id, @RequestBody Integer garageId) {
+        Optional<VoitureEntity> voiture = voitureRepository.findById(id);
+        if (voiture.isPresent()) {
+            VoitureEntity existingVoiture = voiture.get();
+            if (garageId == -1){
+                garageId=null;
+            }
+            existingVoiture.setGarage(garageId);
+            VoitureEntity updatedVoiture = voitureRepository.save(existingVoiture);
+            return new ResponseEntity<>(updatedVoiture, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
 }
