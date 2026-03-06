@@ -1,1 +1,13 @@
-<p>voiture works!</p>
+<div>
+    <p>Modele : {{voiture?.modele}}</p>
+    <p>Id: {{voiture?.id}}</p>
+    <p>Couleur: {{voiture?.couleur}}</p>
+
+    <p *ngIf="garage">
+        Garage: {{garage.nom}}
+        <!-- <button (click)="">Dissocier</button> -->
+    </p>
+</div>
+<button class="delete" (click)="deleteVoiture(voiture.id)">Supprimer</button>
+<button (click)="retourVoitures()">Retourner aux voitures</button>
+
