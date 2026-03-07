@@ -21,4 +21,8 @@ export class VoitureService {
         return this.http.delete<void>("http://localhost:8080/api/voiture/" + id);
     }
 
+    updateGarage(voitureId:number, garageId:number):Observable<VoitureModel>{
+        return this.http.patch<VoitureModel>(`http://localhost:8080/api/voiture/${voitureId}/garage`, garageId);
+    }
+
 }

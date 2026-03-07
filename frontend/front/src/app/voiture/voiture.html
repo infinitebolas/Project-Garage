@@ -1,13 +1,45 @@
-<div>
-    <p>Modele : {{voiture?.modele}}</p>
-    <p>Id: {{voiture?.id}}</p>
-    <p>Couleur: {{voiture?.couleur}}</p>
+<!-- <div>
+    <p>Modele : {{voiture.modele}}</p>
+    <p>Id: {{voiture.id}}</p>
+    <p>Couleur: {{voiture.couleur}}</p>
 
-    <p *ngIf="garage">
+    <p *ngIf="garage !=null">
         Garage: {{garage.nom}}
-        <!-- <button (click)="">Dissocier</button> -->
+        <button (click)="updateGarage(voiture.id, -1)">Dissocier</button>
     </p>
 </div>
 <button class="delete" (click)="deleteVoiture(voiture.id)">Supprimer</button>
 <button (click)="retourVoitures()">Retourner aux voitures</button>
 
+
+ -->
+
+
+<div *ngIf="voiture">
+
+  <p>Modele : {{voiture.modele}}</p>
+  <p>Id: {{voiture.id}}</p>
+  <p>Couleur: {{voiture.couleur}}</p>
+
+  <div *ngIf="garage; else noGarage">
+      <p>
+          Garage: {{garage.nom}}
+          <button (click)="updateGarage(voiture.id, -1)">Dissocier</button>
+      </p>
+  </div>
+
+  <ng-template #noGarage>
+      <p>Aucun garage associé</p>
+      <select (change)="changeGarage($event)">
+          <option value="">Choisir un garage</option>
+          <option *ngFor="let g of garages" [value]="g.id">
+              {{g.nom}}
+          </option>
+      </select>
+  </ng-template>
+
+  <button class="delete" (click)="deleteVoiture(voiture.id)">Supprimer</button>
+
+</div>
+
+<button (click)="retourVoitures()">Retourner aux voitures</button>
