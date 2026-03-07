@@ -1,5 +1,4 @@
-import { Component, signal } from '@angular/core';
-import { Accueil } from './accueil/accueil';
+import { Component} from '@angular/core';
 import { Header } from './header/header';
 import { RouterOutlet } from "@angular/router";
 
@@ -8,7 +7,7 @@ import { RouterOutlet } from "@angular/router";
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  imports: [Accueil, Header, RouterOutlet]
+  imports: [Header, RouterOutlet]
 })
 export class App {
 }
