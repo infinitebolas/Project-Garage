@@ -29,4 +29,16 @@ export class VoitureService {
         return this.http.post<VoitureModel>("http://localhost:8080/api/voiture", voiture);
     }
 
+    updateVoiture(id:number, voiture: VoitureModel):Observable<VoitureModel>{
+        return this.http.put<VoitureModel>("http://localhost:8080/api/voiture/" + id, voiture);
+    }
+
+    updateModele(voitureId:number, modele:string):Observable<VoitureModel>{
+        return this.http.patch<VoitureModel>(`http://localhost:8080/api/voiture/${voitureId}/modele`, modele);
+    }
+
+    updateCouleur(voitureId:number, couleur:string):Observable<VoitureModel>{
+        return this.http.patch<VoitureModel>(`http://localhost:8080/api/voiture/${voitureId}/couleur`, couleur);
+    }
+
 }

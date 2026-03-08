@@ -81,4 +81,30 @@ public class VoitureController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @PatchMapping("/{id}/modele")
+    public ResponseEntity<VoitureEntity> updateModele(@PathVariable Integer id, @RequestBody String modele){
+        Optional <VoitureEntity> voiture = voitureRepository.findById(id);
+        if (voiture.isPresent()){
+            VoitureEntity existingVoiture = voiture.get();
+            existingVoiture.setModele(modele);
+
+            VoitureEntity updatedVoiture = voitureRepository.save(existingVoiture);
+            return new ResponseEntity<>(updatedVoiture, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PatchMapping("/{id}/couleur")
+    public ResponseEntity<VoitureEntity> updateCouleur(@PathVariable Integer id, @RequestBody String couleur){
+        Optional <VoitureEntity> voiture = voitureRepository.findById(id);
+        if (voiture.isPresent()){
+            VoitureEntity existingVoiture = voiture.get();
+            existingVoiture.setCouleur(couleur);
+
+            VoitureEntity updatedVoiture = voitureRepository.save(existingVoiture);
+            return new ResponseEntity<>(updatedVoiture, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
 }

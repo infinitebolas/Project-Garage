@@ -8,6 +8,7 @@ import { VoitureModel } from "../models/voiture.models";
 })
 
 export class GarageService {
+
     private http: HttpClient = inject(HttpClient);
 
     getGarages():Observable<GarageModel[]> {
@@ -28,5 +29,16 @@ export class GarageService {
 
     createGarage(garage: GarageModel):Observable<GarageModel>{
         return this.http.post<GarageModel>("http://localhost:8080/api/garages", garage);
+    }    
+    updateNom(garageId: number, nom: string):Observable<GarageModel>{
+        return this.http.patch<GarageModel>(`http://localhost:8080/api/garages/${garageId}/nom`, nom);
     }
+    updateAdresse(garageId: number, adresse: string):Observable<GarageModel>{
+        return this.http.patch<GarageModel>(`http://localhost:8080/api/garages/${garageId}/adresse`, adresse);
+    }
+    updateDescription(garageId: number, description: string):Observable<GarageModel>{
+        return this.http.patch<GarageModel>(`http://localhost:8080/api/garages/${garageId}/description`, description);
+    }
+
+    
 }
