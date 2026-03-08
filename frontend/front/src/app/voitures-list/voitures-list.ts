@@ -40,4 +40,8 @@ export class VoituresList implements OnInit {
     this.router.navigate(['/voiture/'+id]);
   }
 
+  createVoiture(){
+    this.router.navigate(['createmodify/voiture']);
+  }
+
 }
