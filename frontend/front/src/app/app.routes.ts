@@ -14,8 +14,7 @@ export const routes: Routes = [
     { path: 'garages/:id', component: Garage },
     { path: 'voiture', component: VoituresList },
     { path: 'voiture/:id', component: Voiture },
-    { path: 'createmodify/:item', component: CreateModify},
-    { path: 'createmodify/:item/:id', component: CreateModify}
-
+    { path: 'createmodify/:entite', component: CreateModify},
+    { path: 'createmodify/:entite/:id', component: CreateModify},
 ];
 

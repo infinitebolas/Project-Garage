@@ -44,4 +44,7 @@ export class VoituresList implements OnInit {
     this.router.navigate(['createmodify/voiture']);
   }
 
+  modifierVoiture(id :number){
+    this.router.navigate(['createmodify/voiture/'+id])
+  }
 }

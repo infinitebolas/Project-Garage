@@ -25,4 +25,8 @@ export class GarageService {
     getVoitures(id:number):Observable<VoitureModel[]>{
         return this.http.get<VoitureModel[]>("http://localhost:8080/api/voiture/garage/"+id);
     }
+
+    createGarage(garage: GarageModel):Observable<GarageModel>{
+        return this.http.post<GarageModel>("http://localhost:8080/api/garages", garage);
+    }
 }

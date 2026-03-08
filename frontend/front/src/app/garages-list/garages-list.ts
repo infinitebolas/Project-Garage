@@ -40,4 +40,12 @@ export class GaragesList implements OnInit {
     this.router.navigate(['/garages/'+id]);
   }
 
+  createGarage(){
+    this.router.navigate(['createmodify/garage']);
+  }
+
+  modifierGarage(id :number){
+    this.router.navigate(['createmodify/garage/'+id])
+  }
+
 }

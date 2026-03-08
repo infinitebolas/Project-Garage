@@ -1,1 +1,33 @@
-<p>create-modify works!</p>
+<h2>{{title}}</h2>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+  <input
+    type="text"
+    [name]="name1"
+    [placeholder]="placeholder1"
+    ngModel
+    required
+  >
+
+  <input
+    type="text"
+    [name]="name2"
+    [placeholder]="placeholder2"
+    ngModel
+    required
+  >
+
+  <input
+    *ngIf="placeholder3"
+    type="text"
+    [name]="name3"
+    [placeholder]="placeholder3"
+    ngModel
+  >
+
+  <button type="submit" [disabled]="!form.valid">
+    {{buttonText}}
+  </button>
+
+</form>

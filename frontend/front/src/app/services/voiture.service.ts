@@ -25,4 +25,8 @@ export class VoitureService {
         return this.http.patch<VoitureModel>(`http://localhost:8080/api/voiture/${voitureId}/garage`, garageId);
     }
 
+    createVoiture(voiture: VoitureModel):Observable<VoitureModel>{
+        return this.http.post<VoitureModel>("http://localhost:8080/api/voiture", voiture);
+    }
+
 }
