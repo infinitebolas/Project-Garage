@@ -1,21 +1,21 @@
-<div *ngIf="voiture">
+ <div *ngIf="voiture"> <!--on vérifie si la voiture est chargée -->
 
     <p>Modele : {{voiture.modele}}</p>
     <p>Id: {{voiture.id}}</p>
     <p>Couleur: {{voiture.couleur}}</p>
 
-    <div *ngIf="garage; else noGarage">
+    <div *ngIf="garage; else noGarage"> <!--si on a un garage -->
         <p>
         Garage: {{garage.nom}}
-        <button (click)="updateGarage(voiture.id, -1)">Dissocier</button>
+        <button (click)="updateGarage(voiture.id, -1)">Dissocier</button> <!-- le -1 signifie que le garage va devenir null-->
         </p>
     </div>
 
-    <ng-template #noGarage>
+    <ng-template #noGarage> <!--pas de garage -->
         <p>Aucun garage associé</p>
         <select (change)="changeGarage($event)">
             <option value="">Choisir un garage</option>
-            <option *ngFor="let g of garages" [value]="g.id">
+            <option *ngFor="let g of garages" [value]="g.id"> <!-- on récupère tous les garages par leur id -->
                 {{g.nom}}
             </option>
         </select>

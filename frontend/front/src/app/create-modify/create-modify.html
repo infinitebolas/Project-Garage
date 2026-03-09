@@ -1,22 +1,23 @@
 <h2>{{title}}</h2>
-
+<!-- partie modification -->
 <div *ngIf="id">
-    <div *ngFor="let field of fields">
+    <div *ngFor="let field of fields"> <!-- on parcourt la liste des champs et on créé un formulaire pour chacun d'eux -->
     <form #f="ngForm" (ngSubmit)="submitField(field)">
         <input
         type="text"
         [name]="field.name"
         [placeholder]="field.placeholder"
         [(ngModel)]="field.value"
-        required
-        >
-        <button type="submit" [disabled]="!f.valid">
+        required 
+        ><!-- indique quel champ est obligatoire-->
+        <button type="submit" [disabled]="!f.valid"> <!-- si le champ est vide le bouton est désactivé-->
         Modifier {{field.name}}
         </button>
     </form>
     </div>
 </div>
 
+<!-- partie création -->
 <form *ngIf="!id" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div *ngFor="let field of fields">
 
@@ -30,7 +31,7 @@
   </div>
 
   <button type="submit" [disabled]="!form.valid">
-    {{buttonText}}
+    Création
   </button>
 
 </form>

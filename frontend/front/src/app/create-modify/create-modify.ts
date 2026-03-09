@@ -21,8 +21,7 @@ export class CreateModify implements OnInit {
   title?: string;
   voiture?: VoitureModel;
   garage?: GarageModel;
-  buttonText?:string;
-  fields: any[] = [];
+  fields: any[] = []; // une liste de champs de type any pour prendre tous les types
 
   constructor(
     private voitureService: VoitureService,
@@ -36,7 +35,7 @@ export class CreateModify implements OnInit {
     this.entite = this.route.snapshot.paramMap.get('entite')!;
     const idParam = this.route.snapshot.paramMap.get('id');
     if(idParam){
-      this.id = Number(idParam);
+      this.id = Number(idParam); // si on a un id cela veut dire que l'on est dans le modify, sinon create
     }
     if(this.id){
       this.loadEntity();
@@ -65,9 +64,9 @@ export class CreateModify implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    if(!form.valid) return;
+    if(!form.valid) return; // on ne retourne rien si le formulaire n'est pas valide
     if(this.entite === "voiture"){
-      this.voitureService.createVoiture(form.value).subscribe(()=>{
+      this.voitureService.createVoiture(form.value).subscribe(()=>{ // on créé une voiture avec la valeur du formulaire
         alert("Voiture créée");
         this.router.navigate(['/voiture']);
       });
@@ -79,9 +78,9 @@ export class CreateModify implements OnInit {
       });
     }
   }
+
   configureFields(){
     this.title = "Création";
-    this.buttonText = "Création";
     if(this.entite === "voiture"){
       this.fields = [
         {
@@ -96,7 +95,7 @@ export class CreateModify implements OnInit {
           value: this.voiture?.couleur || "",
           patchMethod: "patchCouleur"
         }
-      ];
+      ]; // on définit les différentes valeurs des champs, par exemple si un élément est chargé on prend sa couleur, sinon la valeur est nulle
     }
     if(this.entite === "garage"){
       this.fields = [
@@ -125,6 +124,7 @@ export class CreateModify implements OnInit {
   submitField(field:any){
     if(!this.id) return;
     const value = field.value;
+    // on vérifie quel champ doit être modifié pour le mettre à jour 
     if(this.entite === "voiture"){
       if(field.patchMethod === "patchModele"){
         this.voitureService.updateModele(this.id, value).subscribe(()=>{

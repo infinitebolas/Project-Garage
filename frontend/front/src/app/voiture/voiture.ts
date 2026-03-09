@@ -17,7 +17,7 @@ export class Voiture implements OnInit {
 
   voiture?: VoitureModel;
   garage?: GarageModel;
-  garages: GarageModel[] = [];
+  garages: GarageModel[] = []; //liste de garages
 
   constructor(
     private voitureService: VoitureService,
@@ -28,7 +28,7 @@ export class Voiture implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id')); // récupération de l'id dans l'url
 
     this.loadVoiture(id);   
     this.loadGarages();     
@@ -83,8 +83,8 @@ export class Voiture implements OnInit {
   }
 
   changeGarage(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
-    const garageId = value ? Number(value) : -1; 
+    const value = (event.target as HTMLSelectElement).value; // on récupère la valeur du ng-template
+    const garageId = value ? Number(value) : -1; // on change la valeur, ou on met -1 si on veut supprimer le garage
     if (this.voiture) {
       this.updateGarage(this.voiture.id, garageId);
     }
