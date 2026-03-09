@@ -1,13 +1,15 @@
-<div>
-    <p>Nom: {{garage.nom}}</p>
-    <p>Adresse: {{garage.adresse}}</p>
-    <p>Description: {{garage.description}}</p>
-    <p>Voitures:</p>
-    <div class="Voitures" *ngFor="let voiture of voitures ">
-        <div>{{ voiture.modele }}</div>
-    </div>
-    <button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
-    <button class="retour" (click)="retourGarages()">Retourner aux garages</button>
-</div>
 
+<div class="garage">
+    <div>
+        <p>Nom: {{garage.nom}}</p>
+        <p>Adresse: {{garage.adresse}}</p>
+        <p>Description: {{garage.description}}</p>
+        <p>Voitures:</p>
+        <div class="Voitures" *ngFor="let voiture of voitures ">
+            <div>{{ voiture.modele }}</div>
+        </div>
+        <button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
+        <button class="retour" (click)="retourGarages()">Retourner aux garages</button>
+    </div>
+</div>
 
