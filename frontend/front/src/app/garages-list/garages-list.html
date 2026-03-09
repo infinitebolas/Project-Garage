@@ -1,18 +1,20 @@
-<div class="container">
+<div class="list">
+  <div class="container">
 
-  <div class="table" *ngFor="let garage of garages">
+    <div class="table" *ngFor="let garage of garages">
 
-    <div class="elem">
-      <div class="garage-name">{{ garage.nom }}</div>
-      <div class="buttons">
-        <button class="display" (click)="afficherGarage(garage.id)">Afficher</button>
-        <button class="modify">Modifier</button>
-        <button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
+      <div class="elem">
+        <div class="garage-name">{{ garage.nom }}</div>
+        <div class="buttons">
+          <button class="display" (click)="afficherGarage(garage.id)">Afficher</button>
+          <button class="modify">Modifier</button>
+          <button class="delete" (click)="deleteGarage(garage.id)">Supprimer</button>
+        </div>
+
       </div>
 
     </div>
 
   </div>
-
+  <button class="display" (click)="createGarage()"> Créer un garage</button>
 </div>
-  <button (click)="createGarage()"> Créer un garage</button>

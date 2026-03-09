@@ -10,7 +10,10 @@ import { Router} from '@angular/router';
 })
 export class Accueil {
   constructor(private router: Router) {}
-  onContinue() {
+  onContinueGarage() {
     this.router.navigate(['/garages']);
+  }
+  onContinueVoiture() {
+    this.router.navigate(['/voiture']);
 }
 }

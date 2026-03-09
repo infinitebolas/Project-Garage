@@ -1,12 +1,8 @@
 <h2>{{title}}</h2>
 
 <div *ngIf="id">
-    <h2>{{title}}</h2>
-
     <div *ngFor="let field of fields">
-
     <form #f="ngForm" (ngSubmit)="submitField(field)">
-
         <input
         type="text"
         [name]="field.name"
@@ -14,49 +10,23 @@
         [(ngModel)]="field.value"
         required
         >
-
         <button type="submit" [disabled]="!f.valid">
         Modifier {{field.name}}
         </button>
-
     </form>
-
     </div>
 </div>
 
-
-
-<!-- FORMULAIRE CREATION -->
 <form *ngIf="!id" #form="ngForm" (ngSubmit)="onSubmit(form)">
-
   <div *ngFor="let field of fields">
 
     <input
-      *ngIf="field.type === 'text'"
-      type="text"
-      [name]="field.name"
-      [placeholder]="field.placeholder"
-      [(ngModel)]="field.value"
-      required
+        type="text"
+        [name]="field.name"
+        [placeholder]="field.placeholder"
+        [(ngModel)]="field.value"
+        required
     >
-
-    <select
-      *ngIf="field.type === 'select'"
-      [name]="field.name"
-      [(ngModel)]="field.value">
-
-      <option [ngValue]="null">Aucun garage</option>
-
-      <option
-        *ngFor="let g of field.options"
-        [ngValue]="g.id">
-
-        {{g.nom}}
-
-      </option>
-
-    </select>
-
   </div>
 
   <button type="submit" [disabled]="!form.valid">

@@ -1,0 +1,40 @@
+.accueil {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding:10px;
+}
+
+.accueil h1 {
+    color: white;
+    font-size: 36px;
+    max-width: 700px;
+}
+
+.continue {
+    height:10vh;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.continue:hover {
+    background-color: #219150;
+    transform: translateY(-2px);
+}
+
+.continue:active {
+    transform: scale(0.96);
+}

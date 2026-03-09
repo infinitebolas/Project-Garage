@@ -11,7 +11,8 @@ import { GarageModel } from '../models/garage.models';
   selector: 'app-create-modify',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './create-modify.html'
+  templateUrl: './create-modify.html',
+  styleUrl:'./create-modify.scss'
 })
 export class CreateModify implements OnInit {
 
@@ -80,17 +81,18 @@ export class CreateModify implements OnInit {
   }
   configureFields(){
     this.title = "Création";
+    this.buttonText = "Création";
     if(this.entite === "voiture"){
       this.fields = [
         {
           name: "modele",
-          placeholder: "Modifier le modèle",
+          placeholder: "Modèle",
           value: this.voiture?.modele || "",
           patchMethod: "patchModele"
         },
         {
           name: "couleur",
-          placeholder: "Modifier la couleur",
+          placeholder: "Couleur",
           value: this.voiture?.couleur || "",
           patchMethod: "patchCouleur"
         }
@@ -100,19 +102,19 @@ export class CreateModify implements OnInit {
       this.fields = [
         {
           name: "nom",
-          placeholder: "Modifier le nom",
+          placeholder: "Nom",
           value: this.garage?.nom || "",
           patchMethod: "patchNom"
         },
         {
           name: "adresse",
-          placeholder: "Modifier l'adresse",
+          placeholder: "Adresse",
           value: this.garage?.adresse || "",
           patchMethod: "patchAdresse"
         },
         {
           name: "description",
-          placeholder: "Modifier la description",
+          placeholder: "Description",
           value: this.garage?.description || "",
           patchMethod: "patchDescription"
         }
